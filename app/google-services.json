@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "9371459607",
+    "firebase_url": "https://door-sensor-41730-default-rtdb.firebaseio.com",
+    "project_id": "door-sensor-41730",
+    "storage_bucket": "door-sensor-41730.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:9371459607:android:12aeeeda709af56d10bc52",
+        "android_client_info": {
+          "package_name": "com.journal.doorsensor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "9371459607-7lj1k0kgaogul7rcu440vu66pltftttt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHGn0DhLkd6qa1MbUfF-dsPj4EjUIEtj8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "9371459607-7lj1k0kgaogul7rcu440vu66pltftttt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
