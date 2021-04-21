@@ -53,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void abrirPuerta(){
-//        getWindow().setBackgroundDrawableResource(R.drawable.gris);
         transition.reverseTransition(250);
         if(animation.isAnimating()){
             animation.cancelAnimation();
@@ -63,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void cerrarPuerta(){
-//        getWindow().setBackgroundDrawableResource(R.drawable.rojo);
         transition.startTransition(250);
         if(animation.isAnimating()){
             animation.cancelAnimation();
