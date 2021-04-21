@@ -2,10 +2,13 @@ package com.journal.doorsensor;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.graphics.drawable.TransitionDrawable;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.view.WindowManager;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -14,14 +17,19 @@ import com.google.firebase.database.ValueEventListener;
 import com.journal.doorsensor.model.DoorStatus;
 
 public class MainActivity extends AppCompatActivity {
-
-    TextView texto;
+    LottieAnimationView animation;
+    TransitionDrawable transition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        texto = findViewById(R.id.status);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        animation = findViewById(R.id.candado);
+        animation.setSpeed(4.0f);
+        transition = (TransitionDrawable) findViewById(R.id.background).getBackground();
+        transition.reverseTransition(250);
+        getWindow().setBackgroundDrawableResource(R.drawable.gris);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("/Door");
 
@@ -45,11 +53,23 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void abrirPuerta(){
-        texto.setText("Puerta abierta");
+//        getWindow().setBackgroundDrawableResource(R.drawable.gris);
+        transition.reverseTransition(250);
+        if(animation.isAnimating()){
+            animation.cancelAnimation();
+        }
+        animation.reverseAnimationSpeed();
+        animation.playAnimation();
     }
 
     private void cerrarPuerta(){
-        texto.setText("Puerta cerrada");
+//        getWindow().setBackgroundDrawableResource(R.drawable.rojo);
+        transition.startTransition(250);
+        if(animation.isAnimating()){
+            animation.cancelAnimation();
+        }
+        animation.reverseAnimationSpeed();
+        animation.playAnimation();
     }
 
 
